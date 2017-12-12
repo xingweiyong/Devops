@@ -92,7 +92,7 @@ class MySql():
         self.conn.close()
 
 if __name__ == '__main__':
-    db = MySql('10.13.38.4',3307, 'crawler', 'crawlerQaz', 'chaser')
+    db = MySql('ip',3307, 'user', 'pwd', 'db')
     dic = {'title':'eee','num':'233','crawl_time':'2016-09-06 11:17:32.000000'}
     #db.insert(dic)
     #db.insert_momoid_list({'momoid':'11'})
