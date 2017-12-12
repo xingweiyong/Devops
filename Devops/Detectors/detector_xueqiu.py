@@ -17,7 +17,7 @@ class detector_xueqiu():
     def run(self):
         print u'xueqiu,开始查询...'
 
-        db = MySql('36.110.128.75', 3306, 'root', 'Bigdata1234', 'crawler_db')
+        db = MySql('ip', 3306, 'root', 'user', 'db')
         records_count_curr = db.select("SELECT count(*) FROM xueqiu WHERE crawl_time like '%s%%'"%self.data_period)[0][0]
         records_count_pre = db.select("SELECT count(*) FROM xueqiu WHERE crawl_time like '%s%%'" % self.data_period_pre)[0][0]
         records_count_day = db.select("SELECT count(*) FROM xueqiu WHERE crawl_time like '%s%%'" % self.data_period_day)[0][0]
@@ -33,7 +33,7 @@ class detector_xueqiu():
 
         if len(self.res_info.keys()) > 2:
             print u'保存查询结果...'
-            db = MySql('10.13.38.11', 3307, 'crawler', 'crawlerQaz', 'chaser')
+            db = MySql('ip', 3307, 'user', 'pwd', 'db')
             for k,v in self.res_info.items():
                 if k not in ['flag', 'db_name']:
                     temp = {}
