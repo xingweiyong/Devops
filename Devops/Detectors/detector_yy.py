@@ -28,7 +28,7 @@ class detector_yy():
         print u'yy,开始查询...'
         #make_info(res_info,records_count,'records_count')
 
-        db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+        db=MySql('ip',3307, 'user', 'pwd', 'db')
 
         records_count = self.get_data(db.select("SELECT data_period,count(data_period) from zb WHERE plat = 'yy' and data_period in ('%s') GROUP BY data_period"%(self.data_period)))
         records_count_pre = self.get_data(db.select(
@@ -62,7 +62,7 @@ class detector_yy():
 
 
         print u'保存查询结果...'
-        db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+        db=MySql('ip',3307, 'user', 'pwd', 'db')
         for k,v in self.res_info.items():
             if k not in  ['flag','db_name']:
                 temp = {}
