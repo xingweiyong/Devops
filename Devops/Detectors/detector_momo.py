@@ -28,7 +28,7 @@ class detector_momo():
     def run(self):
         print u'momo,开始查询...'
 
-        db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+        db=MySql('ip',3307, 'user', 'pwd', 'db')
 
         records_count = db.select("SELECT data_period,count(data_period) from zb WHERE plat = 'momo' and data_period in ('%s','%s','%s') GROUP BY data_period"%(self.data_period,self.data_period_pre,self.data_period_day))
         num_sum = db.select("SELECT data_period,sum(num) from zb WHERE plat = 'momo' and data_period in ('%s','%s','%s') GROUP BY data_period"%(self.data_period,self.data_period_pre,self.data_period_day))
@@ -59,7 +59,7 @@ class detector_momo():
 
         if len(self.res_info.keys()) > 2:
             print u'保存查询结果...'
-            db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+            db=MySql('ip',3307, 'user', 'pwd', 'db')
             for k,v in self.res_info.items():
                 if k not in ['flag', 'db_name']:
                     temp = {}
