@@ -22,7 +22,7 @@ class detector_tieba():
     def run(self):
         print u'tieba,开始查询...'
 
-        db = MySql('36.110.128.75', 3306, 'root', 'Bigdata1234', 'crawler_db')
+        db = MySql('ip', 3306, 'root', 'pwd', 'db')
         records_count_curr = self.get_data(db.select("SELECT count(*) FROM tieba WHERE flag = '%s'"%self.data_period))
         records_count_pre = self.get_data(db.select("SELECT count(*) FROM tieba WHERE flag = '%s'"% self.data_period_pre))
         records_count_day = self.get_data(db.select("SELECT count(*) FROM tieba WHERE flag = '%s'" % self.data_period_day))
@@ -36,7 +36,7 @@ class detector_tieba():
                                                          records_count_day) if records_count_day != 0 else records_count_day}
 
         print u'保存查询结果...'
-        db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+        db=MySql('ip',3307, 'user', 'pwd', 'db')
         for k,v in self.res_info.items():
             if k not in  ['flag','db_name']:
                 temp = {}
