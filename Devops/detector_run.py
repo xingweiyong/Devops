@@ -98,7 +98,7 @@ time.sleep(5)
 
 # **********************************************************
 # 判断是否是否超过预警值，选择负责人，发送邮件
-db=MySql('10.13.38.11',3307, 'crawler', 'crawlerQaz', 'chaser')
+db=MySql('ip',3307, 'user', 'pwd', 'db')
 q_res = db.select('SELECT * FROM detector WHERE status = 0')
 db.update('UPDATE detector SET STATUS = 1 WHERE STATUS = 0')
 db.close()
